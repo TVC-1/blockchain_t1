@@ -1,0 +1,2 @@
+[main] ERROR com.blockchain.Sample - Funktion startet
+[main] INFO com.blockchain.Sample - Name: Tobias
