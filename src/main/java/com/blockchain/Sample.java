@@ -20,6 +20,7 @@ public class Sample {
         if (json_string == null) {
             throw new NullPointerException("input must be null");
         }
+
         logger.error("Funktion startet");
         JsonParser parser = new JsonParser();
         final JsonElement element = parser.parse(json_string);

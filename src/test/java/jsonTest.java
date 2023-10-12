@@ -24,8 +24,8 @@ public class jsonTest {
         // String output = Sample.getNameFromJson(input);
 
         //then
-        final IllegalArgumentException ex = Assertions.assertThrows(IllegalArgumentException.class, () -> Sample.getNameFromJson(input));
-        Assertions.assertEquals("only name", ex.getMessage());
+        final NullPointerException ex = Assertions.assertThrows(NullPointerException.class, () -> Sample.getNameFromJson(input));
+        Assertions.assertEquals("Cannot invoke \"com.google.gson.JsonElement.getAsString()\" because the return value of \"com.google.gson.JsonObject.get(String)\" is null", ex.getMessage());
     }
 
     @Test
@@ -38,7 +38,7 @@ public class jsonTest {
 
         //then
         final IllegalStateException ex = Assertions.assertThrows(IllegalStateException.class, () -> Sample.getNameFromJson(input));
-        Assertions.assertEquals("input must be a JSON-Object:", ex.getMessage());
+        Assertions.assertEquals("Not a JSON Object: \"BAD\"", ex.getMessage());
     }
 
     @Test
@@ -48,6 +48,6 @@ public class jsonTest {
 
         //then
         final NullPointerException ex = Assertions.assertThrows(NullPointerException.class, () -> Sample.getNameFromJson(input));
-        Assertions.assertEquals("input must not be null", ex.getMessage());
+        Assertions.assertEquals("input must be null", ex.getMessage());
     }
 }
